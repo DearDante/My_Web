@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .a{
+            width: 300px;
+            height: 30px;
+        }
+        #b{
+            width:500px;
+            border: 1px solid red;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="/static/js/competition.js?v014"></script>
+    <div id="first_form">
+        <form action method="post" id="form_1">
+            <div>
+                <label>选择参赛选手：</label>
+                <br>
+                <input type="checkbox" name="competitor" id="user_1" value="user_1">God doG
+                <input type="checkbox" name="competitor" id="user_2" value="user_2">兵弟弟
+                <input type="checkbox" name="competitor" id="user_3" value="user_3">雷弟弟
+                <br>
+                <input type="checkbox" name="competitor" id="user_4" value="user_4">枣子哥
+                <input type="checkbox" name="competitor" id="user_5" value="user_5">力哥哥
+                <input type="checkbox" name="competitor" id="user_6" value="user_6">毒哥
+                <br>
+                <input type="checkbox" name="competitor" id="user_7" value="user_7">大叔
+                <input type="checkbox" name="competitor" id="user_8" value="user_8">羊总
+                <input type="checkbox" name="competitor" id="user_9" value="user_9">小帅哥
+                <br>
+                <input type="checkbox" name="competitor" id="user_10" value="user_10">篮子哥
+                <input type="checkbox" name="competitor" id="user_11" value="user_11">阿伦
+                <input type="checkbox" name="competitor" id="user_12" value="user_12">王律师
+                <br>
+                <input type="checkbox" name="competitor" id="user_13" value="user_13">阿达
+                <br>
+                <button type="button" onclick="getUsers()">确认</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="show_div">
+        <p id="show"></p>
+    </div>
+
+
+
+</body>
+</html>
