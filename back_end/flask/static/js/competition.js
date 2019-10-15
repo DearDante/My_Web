@@ -16,7 +16,7 @@ user_dict["user_101"] = "路人甲";
 user_dict["user_102"] = "路人乙";
 user_dict["user_103"] = "路人丙";
 user_dict["user_104"] = "路人丁";
-var who = ["路人甲", "路人乙", "路人丙", "路人丁"];
+var who = ["路人甲", "路人乙", "路人丙", "路人丁", "雷弟弟"];
 
 function getUsers() {
         var Users = document.getElementsByName('competitor');
