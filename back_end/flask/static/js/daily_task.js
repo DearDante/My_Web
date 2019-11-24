@@ -35,3 +35,37 @@ function add_task() {
     div.appendChild(task_skip);
     div.appendChild(skip);
 }
+
+function submit_daily(){
+    var xhr = new XMLHttpRequest();
+    var data = new FormData();
+    var info_str = '';
+    var user = document.getElementById('username');
+    var nums = document.getElementById('task_nums');
+    nums = parseInt(nums.innerText);
+
+    data.append("name", user.value);
+    data.append("nums", nums.innerText);
+    console.log(data);
+    for(var i=1;i<nums+1;i++){
+        task_id = 'task_' + i;
+        task_content = 'task_name_' + i;
+        task_complete = 'task_complete_' + i;
+        task_skip = 'task_skip_' + i;
+
+        var tc = document.getElementById(task_content);
+        var tcc = document.getElementById(task_complete);
+        var ts = document.getElementById(task_skip);
+
+        tc_value = tc.value;
+        tcc_value = tcc.checked;
+        ts_value = ts.checked;
+
+        info_str = info_str+tc_value + ',' + tcc_value + ',' + ts_value +';'
+    }
+    data.append("info", info_str);
+    xhr.open("POST", "/daily", true);
+    xhr.send(data);
+
+    alert("Submitted!");
+}

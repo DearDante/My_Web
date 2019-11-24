@@ -16,15 +16,21 @@ def hello():
 
 @app.route('/daily/', methods=["GET","POST"])
 def daily():
+    #TODO: read the data from database; calculate the points.
+    data_dict = {}
     if request.method == 'POST':
-        name = request.values.get('username')
-        behaviors = request.values.getlist('behaviors')
-        if name:
-            data = {}
-            for i in behaviors:
-                data[i] = True
-            data['_id'] = datetime.datetime.now().strftime('%y-%m-%d')
-            web_mongo.add_to_db(name, data)
+        data_dict['user_name'] = request.values['name']
+        data_dict['task_nums'] = request.values['nums']
+        info = request.values['info']
+        for i in info.split(';')[:-1]:
+            task, complete, skip = i.split(',')
+            if skip == 'true':
+                data_dict[task] = 'Skip'
+                continue
+            if complete == 'true': data_dict['task']='True'
+            else: data_dict[task] = 'False'
+
+        print(data_dict)
     return render_template('daily_task.html', method=request.method)
 
 @app.route('/competition/', methods=["GET", "POST"])
@@ -43,4 +49,4 @@ def competition():
     return render_template('competition.html', method=request.method)
 
 if __name__ == '__main__':
-    app.run(debug=False )
+    app.run(debug=False)
