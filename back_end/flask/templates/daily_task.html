@@ -5,21 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-    <script type="text/javascript" src="../static/js/daily_task.js?v008"></script>
+    <script type="text/javascript" src="../static/js/daily_task.js?v011"></script>
     <div>
         <label for="username">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
-        <input type="text" name="username" id="username">
+        <label name="username" id="username">{{u_n}}</label>
     </div>
 
     <div>
         <button type="button" onclick="add_task()">Add&nbsp;Task</button>
-        <label id="task_nums" hidden="true">0</label>
+        <label id="task_nums" hidden="true">{{nums}}</label>
     </div>
 
     <form action method="post" id="main_form">
         <div>
             <button type="button" onclick="submit_daily()">Submit</button>
         </div>
+        {% for name in names %}
+        <div>
+            <label id={{name.task_id}}>{{name.id}}</label>
+            <input type="text" id={{name.task_name}} value={{name.value}}>
+            <input type="checkbox" id={{name.task_complete}}>Completed
+            <input type="checkbox" id={{name.task_skip}}>Skip
+        </div>
+        {% endfor %}
     </form>
 </body>
 </html>

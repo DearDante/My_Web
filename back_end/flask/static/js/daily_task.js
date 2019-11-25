@@ -44,9 +44,8 @@ function submit_daily(){
     var nums = document.getElementById('task_nums');
     nums = parseInt(nums.innerText);
 
-    data.append("name", user.value);
-    data.append("nums", nums.innerText);
-    console.log(data);
+    data.append("name", user.innerText);
+    console.log(user.innerText);
     for(var i=1;i<nums+1;i++){
         task_id = 'task_' + i;
         task_content = 'task_name_' + i;

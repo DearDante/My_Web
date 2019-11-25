@@ -5,9 +5,24 @@
     <title>{{title}}-Be A Better Guy</title>
 </head>
 <body>
-    <h1>Hello, {{user.user}}</h1>
-
-    <a href="http://127.0.0.1:5000/daily">
+    <h1 id="head_1">Hello</h1>
+    <script>
+        function sign_in()
+        {
+            var name_le = document.getElementById("username");
+            user_name = name_le.value;
+            var welcome_title = document.getElementById("head_1");
+            welcome_title.innerText = "Hello, " + user_name;
+            var daily_a = document.getElementById("daily_a");
+            daily_a.href = "http://127.0.0.1:5000/daily?user=" + user_name;
+        }
+    </script>
+    <div>
+        <label>Name</label>
+        <input type="text" name="username" id="username">
+        <button type="button" id="sign_btn" onclick="sign_in()">Sign&nbsp;in</button>
+    </div>
+    <a href="http://127.0.0.1:5000/daily" id="daily_a">
         <button>日常</button>
     </a>
     <br>
